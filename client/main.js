@@ -2,13 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Signup extends Component {
-  render() {
-    return (
-      <div>Signup component here</div>
-    );
-  }
-}
+import Signup from './../imports/ui/Signup';
 
 Meteor.startup(() => {
   ReactDOM.render(<Signup/>, document.getElementById('app'));
