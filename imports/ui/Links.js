@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-class Link extends Component {
+class Links extends Component {
   onLogout() {
     browserHistory.push("/");
   }
@@ -9,7 +9,8 @@ class Link extends Component {
   render() {
     return (
       <div>
-        <div>Link component here</div>
+        <h2>Your Links</h2>
+        <div>Links component here</div>
         <div>
           <button onClick={this.onLogout.bind(this)}>Logout</button>
         </div>
@@ -18,4 +19,4 @@ class Link extends Component {
   }
 }
 
-export default Link;
+export default Links;
