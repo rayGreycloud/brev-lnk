@@ -9,6 +9,9 @@ import Login from './../imports/ui/Login';
 import NotFound from './../imports/ui/NotFound';
 import Signup from './../imports/ui/Signup';
 
+const unauthenicatedPages = ['/', '/login', '/signup'];
+const authenicatedPages = ['/links'];
+
 const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Login} />
@@ -21,7 +24,18 @@ const routes = (
 Tracker.autorun(() => {
   // convert truthy/falsey value to true boolean
   const isAuthenticated = !!Meteor.userId();
-  console.log('isAuthenticated', isAuthenticated);
+  const pathname = browserHistory.getCurrentLocation().pathname;
+  const isUnauthenticatedPage = unauthenicatedPages.includes(pathname);
+  const isAuthenticatedPage = authenicatedPages.includes(pathname);
+
+  if (isUnauthenticatedPage && isAuthenticated) {
+    browserHistory.push('/links');
+  }
+
+  if (isAuthenticatedPage && !isAuthenticated) {
+    browserHistory.push('/');
+  }
+
 });
 
 Meteor.startup(() => {

@@ -18,7 +18,6 @@ class Login extends Component {
     let password = this.refs.password.value.trim();
 
     Meteor.loginWithPassword({ email }, password, (err) => {
-      browserHistory.push('/links');
       console.log('Login callback', err);
     });
   }
