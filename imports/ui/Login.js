@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
-
+import {browserHistory} from 'react-router';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +18,7 @@ class Login extends Component {
     let password = this.refs.password.value.trim();
 
     Meteor.loginWithPassword({ email }, password, (err) => {
+      browserHistory.push('/links');
       console.log('Login callback', err);
     });
   }
