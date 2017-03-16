@@ -20,7 +20,7 @@ const onEnterPrivatePage = () => {
   }
 };
 
-const onAuthChange = (isAuthenticated) => {
+export const onAuthChange = (isAuthenticated) => {
   const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnauthenticatedPage = unauthenicatedPages.includes(pathname);
   const isAuthenticatedPage = authenicatedPages.includes(pathname);
@@ -32,7 +32,7 @@ const onAuthChange = (isAuthenticated) => {
   }
 };
 
-const routes = (
+export const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Login} onEnter={onEnterPublicPage} />
     <Route path="/signup" component={Signup} onEnter={onEnterPublicPage} />
@@ -40,5 +40,3 @@ const routes = (
     <Route path="*" component={NotFound} />
   </Router>
 );
-
-export default { onAuthChange, routes };
