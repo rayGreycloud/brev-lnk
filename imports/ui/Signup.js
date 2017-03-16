@@ -17,7 +17,7 @@ class Signup extends Component {
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
 
-    if (password.length < 9) {
+    if (password.length < 8) {
       return this.setState({ error: 'Password must be at least 9 characters long' });
     }
 
