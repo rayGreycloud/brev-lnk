@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
-import Links from './../ui/Links';
+import LinkList from './../ui/LinkList';
 import Login from './../ui/Login';
 import NotFound from './../ui/NotFound';
 import Signup from './../ui/Signup';
@@ -36,7 +36,7 @@ export const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Login} onEnter={onEnterPublicPage} />
     <Route path="/signup" component={Signup} onEnter={onEnterPublicPage} />
-    <Route path="/links" component={Links} onEnter={onEnterPrivatePage}/>
+    <Route path="/links" component={LinkList} onEnter={onEnterPrivatePage}/>
     <Route path="*" component={NotFound} />
   </Router>
 );
