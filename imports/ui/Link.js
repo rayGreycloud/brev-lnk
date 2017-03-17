@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Links } from './../api/links';
+import LinksList from './LinksList';
 
-// Change component name because collection named Links
 class Link extends Component {
   onLogout() {
     Accounts.logout();
@@ -28,6 +28,7 @@ class Link extends Component {
 
         <div>
           <button onClick={this.onLogout.bind(this)}>Logout</button>
+          <LinksList />
           <p>Add Link</p>
           <form onSubmit={this.onSubmit.bind(this)}>
             <input type="text" ref="url" placeholder="URL" />
