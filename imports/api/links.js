@@ -9,6 +9,17 @@ if (Meteor.isServer) {
   });
 }
 
+// Naming convention: resource.action
 Meteor.methods({
+  // Quotes needed because '.'
+  'links.insert'(url) {
+    if (!this.userId) {
+      return new Meteor.Error('not-authorized');
+    }
 
+    Links.insert({
+      url,
+      userId: this.userId
+    });
+  }
 });
