@@ -18,17 +18,13 @@ Meteor.methods({
       return new Meteor.Error('not-authorized');
     }
 
-    try {
-      new SimpleSchema({
-        url: {
-          type: String,
-          label: 'Your link',
-          regEx: SimpleSchema.RegEx.Url
-        }
-      }).validate({ url });
-    } catch (e) {
-      throw new Meteor.Error('Must be valid url');
-    }
+    new SimpleSchema({
+      url: {
+        type: String,
+        label: 'Your link',
+        regEx: SimpleSchema.RegEx.Url
+      }
+    }).validate({ url });
 
     Links.insert({
       url,
