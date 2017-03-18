@@ -16,8 +16,7 @@ class Link extends Component {
     e.preventDefault();
 
     if (url) {
-      // Save input link and userId
-      Links.insert({ url, userId: Meteor.userId() });
+      Meteor.call('links.insert', url);
       // Clear input field
       this.refs.url.value = '';
     }
