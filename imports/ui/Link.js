@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
 
 import { Links } from './../api/links';
 import PrivateHeader from './PrivateHeader';
@@ -14,8 +12,6 @@ class Link extends Component {
           <PrivateHeader title="Your Links"/>
           <LinksList />
           <AddLink />
-
-
       </div>
     );
   }
