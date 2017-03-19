@@ -3,40 +3,19 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import { Links } from './../api/links';
+import PrivateHeader from './PrivateHeader';
 import LinksList from './LinksList';
+import AddLink from './AddLink';
 
 class Link extends Component {
-  onLogout() {
-    Accounts.logout();
-  }
-
-  onSubmit(e) {
-    const url = this.refs.url.value.trim();
-
-    e.preventDefault();
-
-    if (url) {
-      Meteor.call('links.insert', url);
-      // Clear input field
-      this.refs.url.value = '';
-    }
-  }
-
   render() {
     return (
       <div>
-        <h2>Your Links</h2>
-
-        <div>
-          <button onClick={this.onLogout.bind(this)}>Logout</button>
+          <PrivateHeader title="Your Links"/>
           <LinksList />
-          <p>Add Link</p>
-          <form onSubmit={this.onSubmit.bind(this)}>
-            <input type="text" ref="url" placeholder="URL" />
-            <button>Add Link</button>
+          <AddLink />
 
-          </form>
-        </div>
+
       </div>
     );
   }
