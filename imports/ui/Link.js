@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Links } from './../api/links';
 import PrivateHeader from './PrivateHeader';
