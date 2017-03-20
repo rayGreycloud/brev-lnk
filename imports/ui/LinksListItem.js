@@ -4,12 +4,18 @@ import Clipboard from 'clipboard';
 class LinksListItem extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      justCopied: false
+    };
   }
   componentDidMount() {
     this.clipboard = new Clipboard(this.refs.copy);
 
     this.clipboard.on('success', () => {
-      alert('Copy Successful');
+      this.setState({ justCopied: true });
+
+      setTimeout(() => this.setState({ justCopied: false }), 1000);
     }).on('error', () => {
       alert('Unable to copy - ERROR');
     });
@@ -23,7 +29,7 @@ class LinksListItem extends Component {
         <p>{this.props.url}</p>
         <p>{this.props.shortUrl}</p>
         <p>0 visits</p>
-        <button ref="copy" data-clipboard-text={this.props.shortUrl}>COPY</button>
+        <button ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy'}</button>
       </div>
     );
   }
