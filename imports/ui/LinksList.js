@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import {Tracker} from 'meteor/tracker';
+import { Tracker } from 'meteor/tracker';
+import { Session } from 'meteor/session';
 
 import { Links } from './../api/links';
 import LinksListItem from './LinksListItem';
@@ -17,9 +18,12 @@ class LinksList extends Component {
   componentDidMount() {
     console.log('componentDidMount LinksList');
     this.linksTracker = Tracker.autorun(() => {
-      // Name must match name in publication
+      // Access session store
+      const notHidden = Session.get('showVisible');
       Meteor.subscribe('links');
-      const links = Links.find().fetch();
+      const links = Links.find({
+        visible: notHidden
+      }).fetch();
       this.setState({ links });
     });
   }
