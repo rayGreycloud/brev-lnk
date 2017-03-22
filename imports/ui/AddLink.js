@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import { Meteor } from 'meteor/meteor';
 
 class AddLink extends Component {
@@ -6,7 +7,8 @@ class AddLink extends Component {
     super(props);
 
     this.state = {
-      url: ''
+      url: '',
+      isOpen: false
     };
   }
   onSubmit(e) {
@@ -30,16 +32,20 @@ class AddLink extends Component {
   render() {
     return (
       <div>
-        <p>Add Link</p>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <input
-            type="text"
-            placeholder="URL"
-            value={this.state.url}
-            onChange={this.onChange.bind(this)}
-          />
-          <button>Add Link</button>
-        </form>
+        <button onClick={() => this.setState({ isOpen: true})}>+ Add Link</button>
+        <Modal isOpen={this.state.isOpen} contentLabel="Add Link">
+          <p>Add Link</p>
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <input
+              type="text"
+              placeholder="URL"
+              value={this.state.url}
+              onChange={this.onChange.bind(this)}
+            />
+            <button>Add Link</button>
+          </form>
+          <button onClick={() => this.setState({ isOpen: false, url: ''})}>Cancel</button>
+        </Modal>
       </div>
     );
   }

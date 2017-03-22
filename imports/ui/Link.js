@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Links } from './../api/links';
 import PrivateHeader from './PrivateHeader';
 import LinksList from './LinksList';
 import AddLink from './AddLink';
@@ -11,8 +10,8 @@ const Link = () => {
     <div>
       <PrivateHeader title="Your Links" />
       <LinksListFilters />
-      <LinksList />
       <AddLink />
+      <LinksList />
     </div>
   );
 };
