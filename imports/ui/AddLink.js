@@ -8,7 +8,8 @@ class AddLink extends Component {
 
     this.state = {
       url: '',
-      isOpen: false
+      isOpen: false,
+      error: ''
     };
   }
   onSubmit(e) {
@@ -16,13 +17,13 @@ class AddLink extends Component {
 
     e.preventDefault();
 
-    if (url) {
-      Meteor.call('links.insert', url, (err, res) => {
-        if (!err) {
-          this.setState({ url: '', isOpen: false });
-        }
-      });
-    }
+    Meteor.call('links.insert', url, (err, res) => {
+      if (!err) {
+        this.setState({ url: '', isOpen: false, error: '' });
+      } else {
+        this.setState({ error: err.reason });
+      }
+    });
   }
   onChange(e) {
     this.setState({
@@ -34,7 +35,8 @@ class AddLink extends Component {
       <div>
         <button onClick={() => this.setState({ isOpen: true})}>+ Add Link</button>
         <Modal isOpen={this.state.isOpen} contentLabel="Add Link">
-          <p>Add Link</p>
+          <h2>Add Link</h2>
+          {this.state.error ? <p>{this.state.error}</p> : undefined }
           <form onSubmit={this.onSubmit.bind(this)}>
             <input
               type="text"
@@ -44,7 +46,7 @@ class AddLink extends Component {
             />
             <button>Add Link</button>
           </form>
-          <button onClick={() => this.setState({ isOpen: false, url: ''})}>Cancel</button>
+          <button onClick={() => this.setState({ isOpen: false, url: '', error: ''})}>Cancel</button>
         </Modal>
       </div>
     );
