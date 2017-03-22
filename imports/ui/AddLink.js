@@ -19,7 +19,7 @@ class AddLink extends Component {
     if (url) {
       Meteor.call('links.insert', url, (err, res) => {
         if (!err) {
-          this.setState({ url: '' });
+          this.setState({ url: '', isOpen: false });
         }
       });
     }
