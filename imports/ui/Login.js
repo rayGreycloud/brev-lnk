@@ -28,19 +28,21 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h2>BrevLnk Login</h2>
+      <div className="boxed-view">
+        <div className="boxed-view__box">
+          <h2>BrevLnk Login</h2>
 
-        {this.state.error ? <p>{this.state.error}</p> : undefined }
+          {this.state.error ? <p>{this.state.error}</p> : undefined }
 
-        <div>
-          <form onSubmit={this.onSubmit.bind(this)} noValidate>
-            <input type="email" ref="email" name="email" placeholder="Email"/>
-            <input type="password" ref="password" name="password" placeholder="Password"/>
-            <button>Login</button>
-          </form>
+          <div>
+            <form onSubmit={this.onSubmit.bind(this)} noValidate>
+              <input type="email" ref="email" name="email" placeholder="Email"/>
+              <input type="password" ref="password" name="password" placeholder="Password"/>
+              <button>Login</button>
+            </form>
+          </div>
+          <Link to="/signup">No account? Sign Up Here</Link>
         </div>
-        <Link to="/signup">No account? Sign Up Here</Link>
       </div>
     );
   }
