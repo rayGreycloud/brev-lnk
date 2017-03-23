@@ -34,7 +34,7 @@ class Signup extends Component {
     return (
       <div className="boxed-view">
         <div className="boxed-view__box">
-          <h2>BrevLnk Sign Up</h2>
+          <h1>Brev Lnk Signup</h1>
 
           {this.state.error ? <p>{this.state.error}</p> : undefined }
 
