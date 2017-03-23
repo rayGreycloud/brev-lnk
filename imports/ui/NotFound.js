@@ -1,3 +1,13 @@
 import React from 'react';
 
-export default () => <h1>404 - Not Found</h1>;
+export default () => {
+  return (
+    <div className="boxed-view">
+      <div className="boxed-view__box">
+        <h2>Page Not Found</h2>
+        <p>Oops, unable to find that page.</p>
+        <a href="/">Home</a>
+      </div>
+    </div>
+  );
+};
