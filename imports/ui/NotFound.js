@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default () => {
   return (
@@ -6,7 +7,7 @@ export default () => {
       <div className="boxed-view__box">
         <h2>Page Not Found</h2>
         <p>Oops, unable to find that page.</p>
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
       </div>
     </div>
   );
