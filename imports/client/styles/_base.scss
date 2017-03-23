@@ -11,3 +11,19 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: $base-font-size;
 }
+
+h2 {
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
+
+a {
+  color: #000;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border: 1px solid #dddddd;
+  font-size: $base-font-size;
+  margin-bottom: 1.4rem;
+  padding: 0.8rem;
+}
