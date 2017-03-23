@@ -7,7 +7,7 @@ export default () => {
       <div className="boxed-view__box">
         <h2>Page Not Found</h2>
         <p>Oops, unable to find that page.</p>
-        <Link to="/">Home</Link>
+        <Link to="/" className="button button--link">Return to Home</Link>
       </div>
     </div>
   );

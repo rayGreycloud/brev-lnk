@@ -1,10 +1,15 @@
 .button {
-  background-color: #5b4681;
+  background-color: $button-bg;
   border: none;
-  color: #ffffff;
+  color: $button-color;
   cursor: pointer;
   font-size: $base-font-size;
   margin-bottom: $space;
-  padding: 1rem;
+  padding: $input-spacing;
   text-transform: uppercase;
+}
+
+.button--link {
+  display: inline-block;
+  text-decoration: none;  
 }
