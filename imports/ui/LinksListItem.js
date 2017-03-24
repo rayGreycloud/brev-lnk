@@ -34,14 +34,13 @@ class LinksListItem extends Component {
       visitedMessage = `(visited ${fromNow})`
     }
 
-    return <p>{this.props.visitedCount} {visitMessage} {visitedMessage}</p>
+    return <p className="item__message">{this.props.visitedCount} {visitMessage} {visitedMessage}</p>
   }
   render() {
     return (
       <div className="item">
-        <p>{this.props.url}</p>
-        <p>{this.props.shortUrl}</p>
-        <p>{this.props.visible.toString()}</p>
+        <h2>{this.props.url}</h2>
+        <p className="item__message">{this.props.shortUrl}</p>
         {this.renderStats()}
         <div className="button--group">
           <a className="button button--pill button--link" href={this.props.shortUrl} target="_blank">

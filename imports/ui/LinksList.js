@@ -37,7 +37,7 @@ class LinksList extends Component {
     if (this.state.links.length === 0) {
       return (
         <div className="item">
-          <p><em>No Links Found</em></p>
+          <p className="item__status-message">No Links Found</p>
         </div>
       );
     }
