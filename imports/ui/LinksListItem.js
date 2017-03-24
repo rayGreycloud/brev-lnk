@@ -38,7 +38,7 @@ class LinksListItem extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="item">
         <p>{this.props.url}</p>
         <p>{this.props.shortUrl}</p>
         <p>{this.props.visible.toString()}</p>

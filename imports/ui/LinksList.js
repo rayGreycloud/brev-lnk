@@ -36,7 +36,9 @@ class LinksList extends Component {
   renderLinksListItems() {
     if (this.state.links.length === 0) {
       return (
-        <div><p><em>No Links Found</em></p></div>
+        <div className="item">
+          <p><em>No Links Found</em></p>
+        </div>
       );
     }
 

@@ -1,6 +1,7 @@
 // Colors
 $brand-primary: #5b4681;
 $grey: #dddddd;
+$light-grey: #f9f9f9;
 
 // Spacing
 $space: 1.4rem;
@@ -21,10 +22,14 @@ $boxed-view-bg: #ffffff;
 $button-bg: $brand-primary;
 $button-color: #ffffff;
 $button-pill-color: $brand-primary;
-$button-secondary-bg: #f9f9f9;
+$button-secondary-bg: $light-grey;
 $button-secondary-color: #777777;
-$button-secondary-border-color: $grey;
+$button-secondary-border-color: $light-grey;
 
 // header
 $header-bg: $brand-primary;
 $header-color: #ffffff;
+
+// item
+$item-bg: $light-grey;
+$item-border: darken($item-bg, 8%);
