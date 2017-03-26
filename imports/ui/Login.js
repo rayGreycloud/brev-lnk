@@ -10,7 +10,6 @@ class Login extends Component {
       error: ''
     };
   }
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -25,7 +24,6 @@ class Login extends Component {
       }
     });
   }
-
   render() {
     return (
       <div className="boxed-view">

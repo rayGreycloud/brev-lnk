@@ -10,7 +10,6 @@ class Signup extends Component {
       error: ''
     };
   }
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -29,15 +28,12 @@ class Signup extends Component {
       }
     });
   }
-
   render() {
     return (
       <div className="boxed-view">
         <div className="boxed-view__box">
           <h1>Brev Lnk Signup</h1>
-
           {this.state.error ? <p>{this.state.error}</p> : undefined }
-
           <div>
             <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
               <input type="email" ref="email" name="email" placeholder="Email"/>

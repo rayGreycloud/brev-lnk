@@ -15,7 +15,6 @@ class LinksList extends Component {
       links: []
     };
   }
-
   componentDidMount() {
     console.log('componentDidMount LinksList');
     this.linksTracker = Tracker.autorun(() => {
@@ -28,12 +27,10 @@ class LinksList extends Component {
       this.setState({ links });
     });
   }
-
   componentWillUnmount() {
     console.log('componentWillUnmount LinksList');
     this.linksTracker.stop();
   }
-
   renderLinksListItems() {
     if (this.state.links.length === 0) {
       return (
@@ -47,9 +44,7 @@ class LinksList extends Component {
       const shortUrl = Meteor.absoluteUrl(link._id);
       return <LinksListItem key={link._id} shortUrl={shortUrl} {...link} />;
     });
-
   }
-
   render() {
     return (
       <div>

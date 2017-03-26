@@ -62,7 +62,6 @@ class AddLink extends Component {
             <button className="button">Add Link</button>
             <button type="button" onClick={this.handleModalClose.bind(this)} className="button button--secondary">Cancel</button>
           </form>
-
         </Modal>
       </div>
     );
